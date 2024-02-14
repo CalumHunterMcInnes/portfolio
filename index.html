@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equive="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div id="header">
+    <!-- Creating a container class for logo and top of page links-->
+    <div class="container">
+        <nav>
+            <img src="/images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <!-- Main page header-->
+        <div class="header-text">
+            <p>Computing and Smart Devices Graduate</p>
+            <h1>Hi, I'm <span>Calum</span></h1>
+        </div>
+    </div>
+</div>
+
+<!-- About page -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/about_me.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p> I am a recent graduate with a 2.1 in BSc Computing and Smart Devices from Liverpool John Moores University, skilled in Python, C, and C++. My academic journey has been inspired by a genuine interest in home automation, sensor networks, and embedded systems, reflecting the essence of my enthusiasm.<br><br>
+                    Beyond academic achievements, I bring a keen interest in building real-world projects that seamlessly integrate hardware and software components. My commitment to continuous learning is evident in my proficiency, highlighted by the creation of a personal homelab server using Linux-based systems and virtual environments. Specialized skills include expertise in wireless communication protocols such as MQTT and BLE, alongside a penchant for designing, developing, and testing sensor-based systems.<br><br>
+                    My vision extends to contributing meaningfully to the ever-evolving field of Internet of Things and the opportunities it brings. Having my dream of establishing a fully customised smart home setup, I am eager to bring this vision to fruition while contributing my skills and enthusiasm to a dynamic professional environment and exploring the boundless possibilities it holds for the future.
+                </p>
+
+                <div class="tab-title">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Python</span><br>Programming embedded systems and web development</li>
+                        <li><span>Circuit Design</span><br>Designing circuits</li>
+                        <li><span>C</span><br>Programming microcontrollers</li>
+                        <li><span>Sensor networks</span><br>Designing and building sensor networks</li>
+                        <li><span>C++</span><br>Programming embedded systems</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2019-2021</span><br>Kitchen Porter - The Grapes </li>
+                        <li><span>2022-Present</span><br>Kitchen Porter & Barback - La Finca Eivissa</li>
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2020-2023</span><br>BSc Hons Computing and Smart Devices<br>Class II Division 1<br>Liverpool John Moores </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/circuit.jpg">
+                <div class="layer">
+                    <h3>Smart Home System</h3>
+                    <p>A small scale demo of a custom build smart home system utilising the MQTT protocol</p>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/robot.jpg">
+                <div class="layer">
+                    <h3>A line following robot</h3>
+                    <p>A line following robot with bluetooth low energy remote control</p>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/server.jpg">
+                <div class="layer">
+                    <h3>My homelab server</h3>
+                    <p>My proxmox based homelab server that runs numerous applications. Some of these applications include jellyfin, a wireguard vpn server and a home assistant server</p>
+                </div>
+            </div>
+        </div>
+        <!--<a href="#" class="btn">See more</a>-->
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+        for(tablink of tablinks) {
+            tablink.classList.remove("active-link")
+        }
+
+        for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab")
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab")
+    }
+</script>
+
+<script>
+    
+    var sidemeu = document.getElementById("sidemenu");
+    function openmenu() {
+        sidemeu.style.right = "0";
+    }
+
+    function closemenu() {
+        sidemeu.style.right = "-200px";
+    }
+
+</script>
+
+</body>
+
+</html>
